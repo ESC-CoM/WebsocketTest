@@ -1,10 +1,11 @@
-package com.example.websocket.controller;
+package com.example.websocket.chatting.controller;
 
-import com.example.websocket.domain.Greeting;
-import com.example.websocket.domain.Message;
+import com.example.websocket.chatting.domain.Greeting;
+import com.example.websocket.chatting.domain.Message;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.util.HtmlUtils;
 
 @Controller
@@ -22,5 +23,10 @@ public class GreetingController {
 
         Thread.sleep(1000); // 클라이언트가 메시지를 보낸 후 서버가 메시지를 비동기식으로 처리해야하는 만큼 시간이 걸릴 수 있음을 보여줌
         return new Greeting("Hello, " + HtmlUtils.htmlEscape(message.getName()) + "!");
+    }
+
+    @GetMapping("/chat")
+    public String startchat() {
+        return "chatting/index";
     }
 }

@@ -1,4 +1,4 @@
-package com.example.websocket.domain;
+package com.example.websocket.chatting.domain;
 
 import lombok.Getter;
 
